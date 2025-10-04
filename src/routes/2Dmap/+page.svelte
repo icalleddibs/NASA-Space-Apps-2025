@@ -11,6 +11,7 @@
         Popup
     } from 'svelte-maplibre-gl';
 
+
     //Create Shark Markers and import data here
 
     let lnglat = $state({ lng: -30, lat: 40 });
@@ -37,7 +38,12 @@
     let lngLatLoc5 = $derived(`(${lnglat5.lat.toFixed(3)}, ${lnglat5.lng.toFixed(3)})`);
     let lngLatName5 = $state('Shark Tag #11223');
     let popupOpen5 = $state(false);
-    
+
+    let lnglat6 = $state({ lng: 93, lat: -34 });
+    let lngLatLoc6 = $derived(`(${lnglat6.lat.toFixed(3)}, ${lnglat6.lng.toFixed(3)})`);
+    let lngLatName6 = $state('Shark Tag #44556');
+    let popupOpen6 = $state(false);
+
     let offset = $state(24);
     let offsets: maplibregl.Offset = $derived({
     top: [0, offset],
@@ -60,6 +66,7 @@
     center={{ lng: -80, lat: 40 }}
     maxPitch={85}
     attributionControl={false}
+
 >
     <NavigationControl />
     <ScaleControl />
@@ -145,6 +152,23 @@
       <span class="text-lg font-bold">{lngLatName5}</span>
         <br />
         <span class="text-sm italic">{lngLatLoc5}</span>
+        <br />
+        <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
+    </Popup>
+    </Marker>
+
+    <Marker bind:lnglat={lnglat6}>
+    {#snippet content()}
+      <div class="text-center leading-none">
+        <div class="text-3xl">🦈</div>
+        <div class="font-bold text-black drop-shadow-xs">{lngLatName6}</div>
+        <div class="font-bold text-black drop-shadow-xs">{lngLatLoc6}</div>
+      </div>
+    {/snippet}
+    <Popup class="w-50 text-black" bind:open={popupOpen6} offset={offsets}>
+      <span class="text-lg font-bold">{lngLatName6}</span>
+        <br />
+        <span class="text-sm italic">{lngLatLoc6}</span>
         <br />
         <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
     </Popup>
