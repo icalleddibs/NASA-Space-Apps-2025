@@ -1,38 +1,14 @@
-# sv
+# NASA Space Apps Challenge 2025
+NASA Space Apps Challenge 2025 project developed by [Zenith 2024 and 2025 Fellows](https://www.zenithpathways.ca/zenith-fellowship-class-of-2024).
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+⭐ Live WebApp Prototype (TBA)
 
-## Creating a project
+⭐ Project Submission (TBA)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Description
 
-```sh
-# create a new project in the current directory
-npx sv create
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Tools and Technical Components
 
-## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Acknowledgement
