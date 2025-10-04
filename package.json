@@ -44,6 +44,7 @@
 		"vitest-browser-svelte": "^1.1.0"
 	},
 	"dependencies": {
-		"@svelte-maplibre-gl/pmtiles": "^1.0.1"
+		"@svelte-maplibre-gl/pmtiles": "^1.0.1",
+		"svelte-inview": "^4.0.4"
 	}
 }
