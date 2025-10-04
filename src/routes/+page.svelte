@@ -147,7 +147,8 @@
   {#if section4InView}
     <div transition:fly={{ y: 50, duration: 800 }}>
       <h2>Meet the Team</h2>
-      <p>A group of University students across Canada dedicated to making a lasting impact on the space industry.</p>
+      <p>A group of young professionals across Canada dedicated to making a lasting impact on the space industry.</p>
+      <p>As Zenith Fellows (Class of 2024 and 2025), we represent the next generation of students and emerging professionals in the Canadian space sector.</p>
       <br />
       <!-- make 5 colums for all 5 people, a little image and a short bio -->
         <div class="grid-container">
@@ -155,27 +156,82 @@
                 <h3 class="text-2xl font-bold mb-2">Adara Hagman</h3>
                 <p>Short bio for person 1.</p>
                 <!-- linkedin link -->
-                <a href="https://www.linkedin.com/in/adarahagman/" target="_blank" class="underline hover:text-blue-500">LinkedIn</a>
+
+            <a
+                href="https://www.linkedin.com/in/adarahagman/"
+                target="_blank"
+                class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-500 transition-all duration-200"
+            >LinkedIn</a>
+            <span class="text-gray-400">|</span>
+            <a
+                href="https://www.zenithpathways.ca/adara-hagman"
+                target="_blank"
+                class="text-blue-400 hover:text-blue-500 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+            >Zenith Fellow '24</a>
             </div>
+
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Adithi Balaji</h3>
                 <p>Short bio for person 2.</p>
-                <a href="https://www.linkedin.com/in/adithi-balaji-00483827b/" target="_blank" class="underline hover:text-blue-500">LinkedIn</a>
+                <a
+                    href="https://www.linkedin.com/in/adithi-balaji-00483827b/"
+                    target="_blank"
+                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-500 transition-all duration-200"
+                >LinkedIn</a>
+                <span class="text-gray-400">|</span>
+                <a
+                    href="https://www.zenithpathways.ca/adithi-balaji"
+                    target="_blank"
+                    class="text-blue-400 hover:text-blue-500 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                >Zenith Fellow '25</a>
             </div>
+
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Diba Alam</h3>
                 <p>Short bio for person 3.</p>
-                <a href="https://www.linkedin.com/in/diba-alam/" target="_blank" class="underline hover:text-blue-500">LinkedIn</a>
+                <a
+                    href="https://www.linkedin.com/in/diba-alam/"
+                    target="_blank"
+                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-500 transition-all duration-200"
+                >LinkedIn</a>
+                <span class="text-gray-400">|</span>
+                <a
+                    href="https://www.zenithpathways.ca/diba-alam"
+                    target="_blank"
+                    class="text-blue-400 hover:text-blue-500 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                >Zenith Fellow '24</a>
             </div>
+
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Nora Dawood</h3>
                 <p>Short bio for person 4.</p>
-                <a href="https://www.linkedin.com/in/noradawood/" target="_blank" class="underline hover:text-blue-500">LinkedIn</a>
+                <a
+                    href="https://www.linkedin.com/in/noradawood/"
+                    target="_blank"
+                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-500 transition-all duration-200"
+                >LinkedIn</a>
+                <span class="text-gray-400">|</span>
+                <a
+                    href="https://www.zenithpathways.ca/nora-dawood"
+                    target="_blank"
+                    class="text-blue-400 hover:text-blue-500 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                >Zenith Fellow '24</a>
             </div>
+
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Umar Shabbir</h3>
                 <p>Short bio for person 5.</p>
-                <a href="https://www.linkedin.com/in/umaremshabbir/" target="_blank" class="underline hover:text-blue-500">LinkedIn</a>
+                <a
+                    href="https://www.linkedin.com/in/umaremshabbir/"
+                    target="_blank"
+                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-500 transition-all duration-200"
+                >LinkedIn</a>
+                <span class="text-gray-400">|</span>
+                <a
+                    href="https://www.zenithpathways.ca/umar-shabbir"
+                    target="_blank"
+                    class="text-blue-400 hover:text-blue-500 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                >Zenith Fellow '25</a>
             </div>
         </div>
     </div>
