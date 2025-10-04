@@ -3,8 +3,6 @@
 
 <p><a href="/information">Go to Information Page</a></p>
 
-<p><a href="/2Dmap">Go to 2D Map Page</a></p>
-
-<p><a href="/3Dmap">Go to 3D Map Page</a></p>
+<p><a href="/tags">Go to Tag Tracker Page</a></p>
 
 <p><a href="/heatmap">Go to Heatmap Page</a></p>
