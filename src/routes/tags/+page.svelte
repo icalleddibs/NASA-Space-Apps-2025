@@ -1,6 +1,3 @@
-<h1 class="text-4xl font-bold mb-2">Live Shark Tag Tracker</h1>
-<p class="text-lg text-gray-400">A 3D interactive map displaying active shark tags.</p>
-
 <script lang="ts">
   import {
     MapLibre,
@@ -61,7 +58,7 @@
 </script>
 
 <MapLibre
-  class="h-[55vh] min-h-[600px]"
+  class="fixed inset-0 h-screen w-screen"
   style="https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
   zoom={1.5}
   center={{ lng: -80, lat: 40 }}
@@ -110,7 +107,7 @@
         <div class="font-bold text-white drop-shadow-xs">{lngLatLoc}</div>
       </div>
     {/snippet}
-    <Popup class="w-50 text-white" bind:open={popupOpen} offset={offsets}>
+    <Popup class="w-50 text-black" bind:open={popupOpen} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName}</span><br />
       <span class="text-sm italic">{lngLatLoc}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
@@ -126,7 +123,7 @@
         <div class="font-bold text-white drop-shadow-xs">{lngLatLoc2}</div>
       </div>
     {/snippet}
-    <Popup class="w-50 text-white" bind:open={popupOpen2} offset={offsets}>
+    <Popup class="w-50 text-black" bind:open={popupOpen2} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName2}</span><br />
       <span class="text-sm italic">{lngLatLoc2}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
@@ -142,7 +139,7 @@
         <div class="font-bold text-white drop-shadow-xs">{lngLatLoc3}</div>
       </div>
     {/snippet}
-    <Popup class="w-50 text-white" bind:open={popupOpen3} offset={offsets}>
+    <Popup class="w-50 text-black" bind:open={popupOpen3} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName3}</span><br />
       <span class="text-sm italic">{lngLatLoc3}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
@@ -158,7 +155,7 @@
         <div class="font-bold text-white drop-shadow-xs">{lngLatLoc4}</div>
       </div>
     {/snippet}
-    <Popup class="w-50 text-white" bind:open={popupOpen4} offset={offsets}>
+    <Popup class="w-50 text-black" bind:open={popupOpen4} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName4}</span><br />
       <span class="text-sm italic">{lngLatLoc4}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
@@ -174,7 +171,7 @@
         <div class="font-bold text-white drop-shadow-xs">{lngLatLoc5}</div>
       </div>
     {/snippet}
-    <Popup class="w-50 text-white" bind:open={popupOpen5} offset={offsets}>
+    <Popup class="w-50 text-black" bind:open={popupOpen5} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName5}</span><br />
       <span class="text-sm italic">{lngLatLoc5}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
@@ -190,7 +187,7 @@
         <div class="font-bold text-white drop-shadow-xs">{lngLatLoc6}</div>
       </div>
     {/snippet}
-    <Popup class="w-50 text-white" bind:open={popupOpen6} offset={offsets}>
+    <Popup class="w-50 text-black" bind:open={popupOpen6} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName6}</span><br />
       <span class="text-sm italic">{lngLatLoc6}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
@@ -198,3 +195,11 @@
   </Marker>
 
 </MapLibre>
+
+<!-- Return Home Button -->
+  <a
+    href="/"
+    class="absolute top-4 left-4 bg-white/80 hover:bg-white text-black px-3 py-2 rounded-lg shadow-md text-sm font-semibold transition"
+  >
+    ← Home
+  </a>

@@ -1,5 +1,4 @@
-<h1>HEATMAP</h1>
-<p>This is the Heatmap page where we will display the heatmap.</p>
+
 
 <script lang="ts">
   import { MapLibre, GeoJSONSource, HeatmapLayer, GlobeControl } from 'svelte-maplibre-gl';
@@ -8,8 +7,10 @@
   let zoom = 1.5;
 </script>
 
+
+
 <MapLibre
-  class="h-[55vh] min-h-[600px]"
+  class="fixed inset-0 h-screen w-screen"
   style="https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json"
   bind:zoom
   bind:center
@@ -52,3 +53,11 @@
     />
   </GeoJSONSource>
 </MapLibre>
+
+<!-- Return Home Button -->
+  <a
+    href="/"
+    class="absolute top-4 left-4 bg-white/80 hover:bg-white text-black px-3 py-2 rounded-lg shadow-md text-sm font-semibold transition"
+  >
+    ← Home
+  </a>

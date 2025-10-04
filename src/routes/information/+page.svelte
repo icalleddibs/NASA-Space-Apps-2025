@@ -1,3 +1,8 @@
-<h1>About Page</h1>
-<p>Welcome to the About page!</p>
-<p>Here we will share information about our project.</p>
+
+<!-- Return Home Button -->
+  <a
+    href="/"
+    class="absolute top-4 left-4 bg-white/80 hover:bg-white text-black px-3 py-2 rounded-lg shadow-md text-sm font-semibold transition"
+  >
+    ← Home
+  </a>
