@@ -25,6 +25,16 @@
     padding: 2rem;
   }
 
+  section2 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    padding: 2rem;
+  }
+
   h1, h2 {
     font-weight: bold;
   }
@@ -95,7 +105,7 @@
     <div class="buttons" transition:fade={{ duration: 1000, delay: 600 }}>
       <button on:click={() => goTo('/tags')}>Tag Tracking Map</button>
       <button on:click={() => goTo('/heatmap')}>Habitat Condition Map</button>
-      <button on:click={() => goTo('/information')}>Tag Information</button>
+      <button on:click={() => goTo('/information')}>Data & Information</button>
     </div>
 
     <div class="info" transition:fly={{ y: 50, duration: 800, delay: 1500 }}>
@@ -166,7 +176,7 @@
 </section>
 
 <!-- Section 4 -->
-<section 
+<section2 
   use:inview
   on:inview_change={(e) => section4InView = e.detail.inView}
   class="min-h-screen bg-center bg-cover bg-no-repeat"
@@ -273,7 +283,7 @@
         </div>
     </div>
   {/if}
-</section>
+</section2>
 
 
 
