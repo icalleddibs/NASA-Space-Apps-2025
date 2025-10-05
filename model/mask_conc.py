@@ -64,3 +64,49 @@ axes[1, 1].set_title('SST Anomaly Mask')
 plt.tight_layout()
 plt.savefig('ocean_masks_all.png', dpi=150, bbox_inches='tight')
 plt.show()
+##Convert to GeoJSON
+print("\n=== Converting to GeoJSON ===")
+
+def mask_to_geojson(mask, lat_coord, lon_coord, name, downsample=4):
+    """Convert mask to GeoJSON with optional additional downsampling"""
+    # Further downsample if needed to reduce file size
+    mask_down = mask[::downsample, ::downsample]
+    lat_down = lat_coord[::downsample]
+    lon_down = lon_coord[::downsample]
+    
+    features = []
+    for i, lat in enumerate(lat_down.values):
+        for j, lon in enumerate(lon_down.values):
+            value = float(mask_down[i, j].values)
+            if not np.isnan(value):
+                features.append({
+                    'type': 'Feature',
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [float(lon), float(lat)]
+                    },
+                    'properties': {
+                        'value': value
+                    }
+                })
+    
+    geojson = {
+        'type': 'FeatureCollection',
+        'features': features
+    }
+    
+    filename = f'./output/{name}.geojson'
+    os.makedirs('./output', exist_ok=True)
+    with open(filename, 'w') as f:
+        json.dump(geojson, f)
+    
+    print(f"Saved {name}: {len(features)} points -> {filename}")
+    return filename
+
+# Convert each mask (with additional 4x downsampling to reduce file size)
+mask_to_geojson(pH_masked, pH_masked.latitude, pH_masked.longitude, 'ph_mask', downsample=4)
+mask_to_geojson(chl_masked, chl_masked.lat, chl_masked.lon, 'chl_mask', downsample=2)
+mask_to_geojson(sss_masked, sss_masked.latitude, sss_masked.longitude, 'sss_mask', downsample=4)
+mask_to_geojson(sst_masked, sst_masked.lat, sst_masked.lon, 'sst_mask', downsample=4)
+
+print("\nGeoJSON files created in ./output/")
