@@ -74,12 +74,12 @@
 .grid-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Creates 5 equal-width columns */
-  gap: 10px; /* Optional: adds space between columns */
+  gap: 35px; /* Optional: adds space between columns */
 }
 
 .column-item {
   /* Add styling for your column content here */
-  padding: 40px;
+  padding: 25px;
   background-color: rgb(185, 222, 234);
   border: 3px solid rgb(59, 102, 168);
   border-radius: 25px;
@@ -95,7 +95,7 @@
   {#if section1InView}
     <h1 transition:fly={{ y: -50, duration: 800 }}>Sharkonauts</h1>
 
-    <div class="buttons" transition:fade={{ duration: 1000, delay: 1000 }}>
+    <div class="buttons" transition:fade={{ duration: 1000, delay: 600 }}>
       <button on:click={() => goTo('/heatmap')}>Heatmap</button>
       <button on:click={() => goTo('/tags')}>Tag Tracker</button>
       <button on:click={() => goTo('/information')}>Information</button>
@@ -166,7 +166,7 @@
             <a
                 href="https://www.zenithpathways.ca/adara-hagman"
                 target="_blank"
-                class="text-blue-400 hover:text-blue-500 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
             >Zenith Fellow '24</a>
             </div>
 
@@ -182,7 +182,7 @@
                 <a
                     href="https://www.zenithpathways.ca/adithi-balaji"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-500 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
                 >Zenith Fellow '25</a>
             </div>
 
@@ -198,7 +198,7 @@
                 <a
                     href="https://www.zenithpathways.ca/diba-alam"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-500 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
                 >Zenith Fellow '24</a>
             </div>
 
@@ -214,7 +214,7 @@
                 <a
                     href="https://www.zenithpathways.ca/nora-dawood"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-500 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
                 >Zenith Fellow '24</a>
             </div>
 
@@ -230,7 +230,7 @@
                 <a
                     href="https://www.zenithpathways.ca/umar-shabbir"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-500 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
                 >Zenith Fellow '25</a>
             </div>
         </div>

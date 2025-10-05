@@ -1,0 +1,20 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+            "properties": {
+                "temperature": -200,
+                "location": "Location A"
+            },
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-34.935,
+					10.52
+				]
+			}
+		}
+
+    ]
+}
