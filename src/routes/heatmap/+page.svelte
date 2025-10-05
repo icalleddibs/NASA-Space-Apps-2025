@@ -1,7 +1,7 @@
 
 
 <script lang="ts">
-  import { MapLibre, GeoJSONSource, HeatmapLayer, GlobeControl } from 'svelte-maplibre-gl';
+  import { MapLibre, GeoJSONSource, HeatmapLayer, GlobeControl, CircleLayer } from 'svelte-maplibre-gl';
 
   let center: [number, number] = [-80, 40];
   let zoom = $state(1.5);
@@ -63,32 +63,16 @@
 
 {#if pH}
 <GeoJSONSource id="ph-source" data="/acidity.geojson">
-  <HeatmapLayer
-    id="ph-heatmap"
+  <CircleLayer
+    id="ph-circles"
     paint={{
-      'heatmap-weight': 1,
-      'heatmap-intensity': ['interpolate', ['exponential', 2], ['zoom'], 0, 0.9, 18, 10],
-      'heatmap-color': [
-        'interpolate',
-        ['linear'],
-        ['heatmap-density'],
-        0,
-        'rgba(33,102,172,0)',
-        0.2,
-        'rgb(103,169,207)',
-        0.4,
-        'rgb(209,229,240)',
-        0.6,
-        'rgb(253,219,199)',
-        0.7,
-        'rgb(239,138,98)',
-        0.9,
-        'rgb(178,24,43)',
-        1,
-        'rgb(100,0,200)'
-      ],
-      'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 8, 18, 20],
-      'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 2, 1, 18, 0]
+      'circle-color': 'rgb(224, 221, 110)',
+      'circle-opacity': [
+        '*',
+        ['get', 'value'],
+        0.10  // adjust for layering
+      ]
+      // 'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 4, 18, 10] // optional zoom scaling
     }}
   />
 </GeoJSONSource>
@@ -96,30 +80,16 @@
 
 {#if chlorophyll}
 <GeoJSONSource id="chl-source" data="/chlorophyll.geojson">
-  <HeatmapLayer
-    id="chl-heatmap"
+  <CircleLayer
+    id="chlorophyll-circles"
     paint={{
-      'heatmap-weight': 1,
-      'heatmap-intensity': ['interpolate', ['exponential', 2], ['zoom'], 0, 0.9, 18, 10],
-      'heatmap-color': [
-        'interpolate',
-        ['linear'],
-        ['heatmap-density'],
-        0,
-        'rgba(0,0,255,0)',
-        0.2,
-        'rgb(0,255,255)',
-        0.4,
-        'rgb(0,255,0)',
-        0.6,
-        'rgb(255,255,0)',
-        0.8,
-        'rgb(255,165,0)',
-        1,
-        'rgb(255,0,0)'
+      'circle-color': 'rgb(26, 204, 10)',
+      'circle-opacity': [
+        '*',
+        ['get', 'value'],
+        0.2  // adjust for layering
       ],
-      'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 8, 18, 20],
-      'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 2, 1, 18, 0]
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 4, 18, 10] // optional zoom scaling
     }}
   />
 </GeoJSONSource>
@@ -127,30 +97,16 @@
 
 {#if temperature}
 <GeoJSONSource id="temp-source" data="/temperature.geojson">
-  <HeatmapLayer
-    id="temp-heatmap"
+    <CircleLayer
+    id="temp-circles"
     paint={{
-      'heatmap-weight': 1,
-      'heatmap-intensity': ['interpolate', ['exponential', 2], ['zoom'], 0, 0.9, 18, 10],
-      'heatmap-color': [
-        'interpolate',
-        ['linear'],
-        ['heatmap-density'],
-        0,
-        'rgba(0,0,255,0)',
-        0.2,
-        'rgb(0,255,255)',
-        0.4,
-        'rgb(0,255,0)',
-        0.6,
-        'rgb(255,255,0)',
-        0.8,
-        'rgb(255,165,0)',
-        1,
-        'rgb(255,0,0)'
+      'circle-color': 'rgb(237, 33, 33)',
+      'circle-opacity': [
+        '*',
+        ['get', 'value'],
+        0.25  // adjust for layering
       ],
-      'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 8, 18, 20],
-      'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 2, 1, 18, 0]
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 4, 18, 10] // optional zoom scaling
     }}
   />
 </GeoJSONSource>
@@ -158,30 +114,16 @@
 
 {#if salinity}
 <GeoJSONSource id="sal-source" data="/salinity.geojson">
-  <HeatmapLayer
-    id="sal-heatmap"
+    <CircleLayer
+    id="temp-circles"
     paint={{
-      'heatmap-weight': 1,
-      'heatmap-intensity': ['interpolate', ['exponential', 2], ['zoom'], 0, 0.9, 18, 10],
-      'heatmap-color': [
-        'interpolate',
-        ['linear'],
-        ['heatmap-density'],
-        0,
-        'rgba(0,0,255,0)',
-        0.2,
-        'rgb(0,255,255)',
-        0.4,
-        'rgb(0,255,0)',
-        0.6,
-        'rgb(255,255,0)',
-        0.8,
-        'rgb(255,165,0)',
-        1,
-        'rgb(255,0,0)'
+      'circle-color': 'rgb(101, 105, 224)',
+      'circle-opacity': [
+        '*',
+        ['get', 'value'],
+        0.2  // adjust for layering
       ],
-      'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 8, 18, 20],
-      'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 2, 1, 18, 0]
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 4, 18, 10] // optional zoom scaling
     }}
   />
 </GeoJSONSource>
@@ -189,30 +131,16 @@
 
 {#if turbidity}
 <GeoJSONSource id="turb-source" data="/turbidity.geojson">
-  <HeatmapLayer
-    id="turb-heatmap"
+        <CircleLayer
+    id="temp-circles"
     paint={{
-      'heatmap-weight': 1,
-      'heatmap-intensity': ['interpolate', ['exponential', 2], ['zoom'], 0, 0.9, 18, 10],
-      'heatmap-color': [
-        'interpolate',
-        ['linear'],
-        ['heatmap-density'],
-        0,
-        'rgba(255,255,255,0)',
-        0.2,
-        'rgb(200,200,200)',
-        0.4,
-        'rgb(150,150,150)',
-        0.6,
-        'rgb(100,100,100)',
-        0.8,
-        'rgb(50,50,50)',
-        1,
-        'rgb(0,0,0)'
+      'circle-color': 'rgb(153, 81, 184)',
+      'circle-opacity': [
+        '*',
+        ['get', 'value'],
+        0.2  // adjust for layering
       ],
-      'heatmap-radius': ['interpolate', ['linear'], ['zoom'], 0, 8, 18, 20],
-      'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 2, 1, 18, 0]
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 4, 18, 10] // optional zoom scaling
     }}
   />
 </GeoJSONSource>
