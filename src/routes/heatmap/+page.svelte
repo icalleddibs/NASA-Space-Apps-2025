@@ -1,7 +1,7 @@
 
 
 <script lang="ts">
-  import { MapLibre, GeoJSONSource, HeatmapLayer, GlobeControl, CircleLayer } from 'svelte-maplibre-gl';
+  import { MapLibre, GeoJSONSource, NavigationControl, GlobeControl, CircleLayer } from 'svelte-maplibre-gl';
 
   let center: [number, number] = [-80, 40];
   let zoom = $state(1.5);
@@ -52,14 +52,11 @@
   maxPitch={85}
   attributionControl={false}
 >
+  <NavigationControl />
   <GlobeControl />
 
   <!-- Heatmap overlay -->
 
-  <!-- <GeoJSONSource data="https://jma-assets.mierune.dev/codes/amedas_ame.geojson"> -->
-  
-  <!-- add our real data in there -->
-  <!-- to do: figure out how to overlay multiple heatmaps -->
 
 {#if pH}
 <GeoJSONSource id="ph-source" data="/acidity.geojson">
@@ -70,7 +67,7 @@
       'circle-opacity': [
         '*',
         ['get', 'value'],
-        0.10  // adjust for layering
+        0.08  // adjust for layering
       ]
       // 'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 4, 18, 10] // optional zoom scaling
     }}
@@ -85,9 +82,12 @@
     paint={{
       'circle-color': 'rgb(26, 204, 10)',
       'circle-opacity': [
-        '*',
-        ['get', 'value'],
-        0.2  // adjust for layering
+          'interpolate',
+          ['linear'],
+          ['ln', ['max', ['get', 'value'], 1e-30]], // avoid log(0)
+          Math.log(1e-30), 0.0005,  // very small values → faint
+          Math.log(1e-2), 0.15,
+          Math.log(1), 0.35       // near 1 → darker
       ],
       'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 4, 18, 10] // optional zoom scaling
     }}
