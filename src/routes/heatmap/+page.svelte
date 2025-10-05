@@ -16,27 +16,47 @@
 
 <div class="absolute top-16 left-4 z-50 bg-white/80 hover:bg-white rounded-lg shadow-md px-3 py-2 flex flex-col gap-2 text-sm font-semibold transition">
   <label class="flex items-center gap-2 cursor-pointer">
-    <input type="checkbox" bind:checked={pH} class="rounded border p-1" />
-    Acidity (pH)
-  </label>
+  <input type="checkbox" bind:checked={pH} class="rounded border p-1" style="accent-color: rgb(224, 221, 110);" />
+  <span
+    class="inline-block w-3 h-3 rounded-full"
+    style="background-color: rgb(224, 221, 110); opacity: 1;"
+  ></span>
+  Acidity (pH)
+</label>
 
   <label class="flex items-center gap-2 cursor-pointer">
-    <input type="checkbox" bind:checked={chlorophyll} class="rounded border p-1" />
+    <input type="checkbox" bind:checked={chlorophyll} class="rounded border p-1" style="accent-color: rgb(26, 204, 10);" />
+    <span
+    class="inline-block w-3 h-3 rounded-full"
+    style="background-color: rgb(26, 204, 10); opacity: 1;"
+  ></span>
     Chlorophyll Concentration
   </label>
 
   <label class="flex items-center gap-2 cursor-pointer">
-    <input type="checkbox" bind:checked={salinity} class="rounded border p-1" />
+    <input type="checkbox" bind:checked={salinity} class="rounded border p-1" style="accent-color: rgb(101, 105, 224);" />
+    <span
+      class="inline-block w-3 h-3 rounded-full"
+      style="background-color: rgb(101, 105, 224); opacity: 1;"
+    ></span>
     Sea Surface Salinity
   </label>
 
   <label class="flex items-center gap-2 cursor-pointer">
-    <input type="checkbox" bind:checked={temperature} class="rounded border p-1" />
+    <input type="checkbox" bind:checked={temperature} class="rounded border p-1" style="accent-color: rgb(237, 33, 33);" />
+    <span
+      class="inline-block w-3 h-3 rounded-full"
+      style="background-color: rgb(237, 33, 33); opacity: 1;"
+    ></span>
     Sea Surface Temperature
   </label>
 
   <label class="flex items-center gap-2 cursor-pointer">
-    <input type="checkbox" bind:checked={turbidity} class="rounded border p-1" />
+    <input type="checkbox" bind:checked={turbidity} class="rounded border p-1" style="accent-color: rgb(153, 81, 184);" />
+    <span
+      class="inline-block w-3 h-3 rounded-full"
+      style="background-color: rgb(153, 81, 184); opacity: 1;"
+    ></span>
     Turbidity (Kd)
   </label>
 </div>
@@ -69,7 +89,6 @@
         ['get', 'value'],
         0.08  // adjust for layering
       ]
-      // 'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 4, 18, 10] // optional zoom scaling
     }}
   />
 </GeoJSONSource>
