@@ -75,8 +75,8 @@
 .column-item {
   /* Add styling for your column content here */
   padding: 25px;
-  background-color: rgba(102, 201, 234, 0.42);
-  border: 3px solid rgb(59, 102, 168);
+  background-color: #ffc5c5;
+  border: 4px solid #ff9f9f;
   border-radius: 25px;
 }
 
@@ -166,18 +166,18 @@
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Adara Hagman</h3>
                 <p>Short bio for person 1.</p>
-                <!-- linkedin link -->
-
             <a
                 href="https://www.linkedin.com/in/adarahagman/"
                 target="_blank"
-                class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-500 transition-all duration-200"
+                class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                style="color: #fe8080ff"
             >LinkedIn</a>
             <span class="text-gray-400">|</span>
             <a
                 href="https://www.zenithpathways.ca/adara-hagman"
                 target="_blank"
-                class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                style="color: #fe8080ff"
             >Zenith Fellow '24</a>
             </div>
 
@@ -187,13 +187,15 @@
                 <a
                     href="https://www.linkedin.com/in/adithi-balaji-00483827b/"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-500 transition-all duration-200"
+                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    style="color: #fe8080ff"
                 >LinkedIn</a>
                 <span class="text-gray-400">|</span>
                 <a
                     href="https://www.zenithpathways.ca/adithi-balaji"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    style="color: #fe8080ff"
                 >Zenith Fellow '25</a>
             </div>
 
@@ -203,13 +205,15 @@
                 <a
                     href="https://www.linkedin.com/in/diba-alam/"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-500 transition-all duration-200"
+                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    style="color: #fe8080ff"
                 >LinkedIn</a>
                 <span class="text-gray-400">|</span>
                 <a
                     href="https://www.zenithpathways.ca/diba-alam"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    style="color: #fe8080ff"
                 >Zenith Fellow '24</a>
             </div>
 
@@ -219,13 +223,15 @@
                 <a
                     href="https://www.linkedin.com/in/noradawood/"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-500 transition-all duration-200"
+                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    style="color: #fe8080ff"
                 >LinkedIn</a>
                 <span class="text-gray-400">|</span>
                 <a
                     href="https://www.zenithpathways.ca/nora-dawood"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    style="color: #fe8080ff"
                 >Zenith Fellow '24</a>
             </div>
 
@@ -235,13 +241,15 @@
                 <a
                     href="https://www.linkedin.com/in/umaremshabbir/"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-500 transition-all duration-200"
+                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    style="color: #fe8080ff"
                 >LinkedIn</a>
                 <span class="text-gray-400">|</span>
                 <a
                     href="https://www.zenithpathways.ca/umar-shabbir"
                     target="_blank"
-                    class="text-blue-400 hover:text-blue-600 underline decoration-transparent hover:decoration-blue-400 transition-all duration-200"
+                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    style="color: #fe8080ff"
                 >Zenith Fellow '25</a>
             </div>
         </div>
