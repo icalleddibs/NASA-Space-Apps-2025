@@ -13,34 +13,40 @@
     HillshadeLayer
   } from 'svelte-maplibre-gl';
 
-  let lnglat = $state({ lng: -30, lat: 40 });
+  let lnglat = $state({ lng: -2.4, lat: 63.09 });
   let lngLatLoc = $derived(`(${lnglat.lat.toFixed(3)}, ${lnglat.lng.toFixed(3)})`);
-  let lngLatName = $state('Shark Tag #12345');
+  let lngLatName = $state('Shark Tag #10026');
+  let lngLatTemp = $state('5.9°C');
   let popupOpen = $state(false);
 
-  let lnglat2 = $state({ lng: -55, lat: 21 });
+  let lnglat2 = $state({ lng: -71.33, lat: 28.758 });
   let lngLatLoc2 = $derived(`(${lnglat2.lat.toFixed(3)}, ${lnglat2.lng.toFixed(3)})`);
-  let lngLatName2 = $state('Shark Tag #67890');
+  let lngLatName2 = $state('Shark Tag #79701');
+  let lngLatTemp2 = $state('27.5°C');
   let popupOpen2 = $state(false);
 
-  let lnglat3 = $state({ lng: -140, lat: 20 });
+  let lnglat3 = $state({ lng: -146.10, lat: 21.306 });
   let lngLatLoc3 = $derived(`(${lnglat3.lat.toFixed(3)}, ${lnglat3.lng.toFixed(3)})`);
-  let lngLatName3 = $state('Shark Tag #54321');
+  let lngLatName3 = $state('Shark Tag #32098');
+  let lngLatTemp3 = $state('25.6°C');
   let popupOpen3 = $state(false);
 
-  let lnglat4 = $state({ lng: -146, lat: -12 });
+  let lnglat4 = $state({ lng: -193, lat: -37.349 });
   let lngLatLoc4 = $derived(`(${lnglat4.lat.toFixed(3)}, ${lnglat4.lng.toFixed(3)})`);
-  let lngLatName4 = $state('Shark Tag #98765');
+  let lngLatName4 = $state('Shark Tag #39420');
+  let lngLatTemp4 = $state('19.0°C');
   let popupOpen4 = $state(false);
 
-  let lnglat5 = $state({ lng: -193, lat: 40 });
+  let lnglat5 = $state({ lng: -205.72, lat: 36.678 });
   let lngLatLoc5 = $derived(`(${lnglat5.lat.toFixed(3)}, ${lnglat5.lng.toFixed(3)})`);
   let lngLatName5 = $state('Shark Tag #11223');
+  let lngLatTemp5 = $state('14.3°C');
   let popupOpen5 = $state(false);
 
-  let lnglat6 = $state({ lng: 93, lat: -34 });
+  let lnglat6 = $state({ lng: 52.60, lat: -34 });
   let lngLatLoc6 = $derived(`(${lnglat6.lat.toFixed(3)}, ${lnglat6.lng.toFixed(3)})`);
-  let lngLatName6 = $state('Shark Tag #44556');
+  let lngLatName6 = $state('Shark Tag #40556');
+  let lngLatTemp6 = $state('16.4°C');
   let popupOpen6 = $state(false);
 
   let offset = $state(24);
@@ -110,6 +116,7 @@
     <Popup class="w-50 text-black" bind:open={popupOpen} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName}</span><br />
       <span class="text-sm italic">{lngLatLoc}</span><br />
+      <span class="text-sm">Temperature: {lngLatTemp}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
     </Popup>
   </Marker>
@@ -126,6 +133,7 @@
     <Popup class="w-50 text-black" bind:open={popupOpen2} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName2}</span><br />
       <span class="text-sm italic">{lngLatLoc2}</span><br />
+      <span class="text-sm">Temperature: {lngLatTemp2}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
     </Popup>
   </Marker>
@@ -142,6 +150,7 @@
     <Popup class="w-50 text-black" bind:open={popupOpen3} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName3}</span><br />
       <span class="text-sm italic">{lngLatLoc3}</span><br />
+      <span class="text-sm">Temperature: {lngLatTemp3}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
     </Popup>
   </Marker>
@@ -158,6 +167,7 @@
     <Popup class="w-50 text-black" bind:open={popupOpen4} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName4}</span><br />
       <span class="text-sm italic">{lngLatLoc4}</span><br />
+      <span class="text-sm">Temperature: {lngLatTemp4}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
     </Popup>
   </Marker>
@@ -174,6 +184,7 @@
     <Popup class="w-50 text-black" bind:open={popupOpen5} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName5}</span><br />
       <span class="text-sm italic">{lngLatLoc5}</span><br />
+      <span class="text-sm">Temperature: {lngLatTemp5}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
     </Popup>
   </Marker>
@@ -190,6 +201,7 @@
     <Popup class="w-50 text-black" bind:open={popupOpen6} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName6}</span><br />
       <span class="text-sm italic">{lngLatLoc6}</span><br />
+      <span class="text-sm">Temperature: {lngLatTemp6}</span><br />
       <span class="text-sm">Last updated: {new Date().toLocaleString()}</span>
     </Popup>
   </Marker>
@@ -209,3 +221,7 @@
   >
     Tag Tracking Map
   </p>
+
+  <div class="absolute top-16 left-4 z-50 bg-white/65 hover:bg-white rounded-lg shadow-md px-3 py-2 flex flex-col gap-2 text-sm transition">
+  <p> 💡 Select a shark to view its tag information</p>
+  </div>
