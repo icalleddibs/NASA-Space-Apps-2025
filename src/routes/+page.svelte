@@ -193,90 +193,92 @@
         <div class="grid-container">
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Adara Hagman</h3>
-                <p>Short bio for person 1.</p>
+                <p class="text-sm">Short bio for person 1.</p>
             <a
                 href="https://www.linkedin.com/in/adarahagman/"
                 target="_blank"
-                class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                class="hover:decoration-orange-500 underline transition-all duration-200"
                 style="color: #fe8080ff"
             >LinkedIn</a>
-            <span class="text-gray-400">|</span>
+            <span class="text-orange-400">|</span>
             <a
                 href="https://www.zenithpathways.ca/adara-hagman"
                 target="_blank"
-                class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                class="hover:decoration-orange-500 underline transition-all duration-200"
                 style="color: #fe8080ff"
             >Zenith Fellow '24</a>
             </div>
 
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Adithi Balaji</h3>
-                <p>Short bio for person 2.</p>
+                <p class="text-sm">Short bio for person 2.</p>
                 <a
                     href="https://www.linkedin.com/in/adithi-balaji-00483827b/"
                     target="_blank"
-                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    class="hover:decoration-orange-500 underline transition-all duration-200"
                     style="color: #fe8080ff"
                 >LinkedIn</a>
-                <span class="text-gray-400">|</span>
+                <span class="text-orange-400">|</span>
                 <a
                     href="https://www.zenithpathways.ca/adithi-balaji"
                     target="_blank"
-                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    class="hover:decoration-orange-500 underline transition-all duration-200"
                     style="color: #fe8080ff"
                 >Zenith Fellow '25</a>
             </div>
 
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Diba Alam</h3>
-                <p>Short bio for person 3.</p>
+                <p class="text-sm">Engineering Science student at the University of Toronto. Major in Machine Intelligence, with a Minor in Robotics.
+                  Passionate about leveraging AI and robotics in space exploration.
+                </p>
                 <a
                     href="https://www.linkedin.com/in/diba-alam/"
                     target="_blank"
-                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    class="hover:decoration-orange-500 underline transition-all duration-200"
                     style="color: #fe8080ff"
                 >LinkedIn</a>
-                <span class="text-gray-400">|</span>
+                <span class="text-orange-400">|</span>
                 <a
                     href="https://www.zenithpathways.ca/diba-alam"
                     target="_blank"
-                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    class="hover:decoration-orange-500 underline transition-all duration-200"
                     style="color: #fe8080ff"
                 >Zenith Fellow '24</a>
             </div>
 
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Nora Dawood</h3>
-                <p>Short bio for person 4.</p>
+                <p class="text-sm">Short bio for person 4.</p>
                 <a
                     href="https://www.linkedin.com/in/noradawood/"
                     target="_blank"
-                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    class="hover:decoration-orange-500 underline transition-all duration-200"
                     style="color: #fe8080ff"
                 >LinkedIn</a>
-                <span class="text-gray-400">|</span>
+                <span class="text-orange-400">|</span>
                 <a
                     href="https://www.zenithpathways.ca/nora-dawood"
                     target="_blank"
-                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    class="hover:decoration-orange-500 underline transition-all duration-200"
                     style="color: #fe8080ff"
                 >Zenith Fellow '24</a>
             </div>
 
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Umar Shabbir</h3>
-                <p>Short bio for person 5.</p>
+                <p class="text-sm">Short bio for person 5.</p>
                 <a
                     href="https://www.linkedin.com/in/umaremshabbir/"
                     target="_blank"
-                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    class="hover:decoration-orange-500 underline transition-all duration-200"
                     style="color: #fe8080ff"
                 >LinkedIn</a>
-                <span class="text-gray-400">|</span>
+                <span class="text-orange-400">|</span>
                 <a
                     href="https://www.zenithpathways.ca/umar-shabbir"
                     target="_blank"
-                    class="underline decoration-transparent hover:decoration-orange-500 transition-all duration-200"
+                    class="hover:decoration-orange-500 underline transition-all duration-200"
                     style="color: #fe8080ff"
                 >Zenith Fellow '25</a>
             </div>

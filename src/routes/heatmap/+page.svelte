@@ -1,5 +1,6 @@
 
 
+<!-- svelte-ignore non_reactive_update -->
 <script lang="ts">
   import { MapLibre, GeoJSONSource, NavigationControl, GlobeControl, CircleLayer } from 'svelte-maplibre-gl';
 
@@ -27,10 +28,10 @@
   </button>
 
   <label class="flex items-center gap-2 cursor-pointer">
-    <input type="checkbox" bind:checked={pH} class="rounded border p-1" style="accent-color: rgb(224, 221, 110);" />
+    <input type="checkbox" bind:checked={pH} class="rounded border p-1" style="accent-color: rgb(255, 255, 0);" />
     <span
       class="inline-block w-3 h-3 rounded-full"
-      style="background-color: rgb(224, 221, 110); opacity: 1;"
+      style="background-color: rgb(255, 255, 0); opacity: 1;"
   ></span>
   Acidity (pH)
   </label>
@@ -45,31 +46,32 @@
   </label>
 
   <label class="flex items-center gap-2 cursor-pointer">
-    <input type="checkbox" bind:checked={salinity} class="rounded border p-1" style="accent-color: rgb(101, 105, 224);" />
+    <input type="checkbox" bind:checked={turbidity} class="rounded border p-1" style="accent-color: rgb(0,255,255);" />
     <span
       class="inline-block w-3 h-3 rounded-full"
-      style="background-color: rgb(101, 105, 224); opacity: 1;"
+      style="background-color: rgb(0,255,255); opacity: 1;"
     ></span>
-    Sea Surface Salinity
+    Turbidity (Kd)
   </label>
 
   <label class="flex items-center gap-2 cursor-pointer">
-    <input type="checkbox" bind:checked={temperature} class="rounded border p-1" style="accent-color: rgb(237, 33, 33);" />
+    <input type="checkbox" bind:checked={temperature} class="rounded border p-1" style="accent-color: rgb(255,0,255);" />
     <span
       class="inline-block w-3 h-3 rounded-full"
-      style="background-color: rgb(237, 33, 33); opacity: 1;"
+      style="background-color: rgb(255,0,255); opacity: 1;"
     ></span>
     Sea Surface Temperature
   </label>
 
   <label class="flex items-center gap-2 cursor-pointer">
-    <input type="checkbox" bind:checked={turbidity} class="rounded border p-1" style="accent-color: rgb(153, 81, 184);" />
+    <input type="checkbox" bind:checked={salinity} class="rounded border p-1" style="accent-color: rgb(252, 28, 3);" />
     <span
       class="inline-block w-3 h-3 rounded-full"
-      style="background-color: rgb(153, 81, 184); opacity: 1;"
+      style="background-color: rgb(252, 28, 3); opacity: 1;"
     ></span>
-    Turbidity (Kd)
+    Sea Surface Salinity
   </label>
+
 
 <!-- Shared intensity scale -->
 <div class="mt-4 text-sm text-gray-600 pl-3">
@@ -78,8 +80,8 @@
     style="background: linear-gradient(to right, rgba(33,102,172,0.1), rgb(33,102,172));"
   ></div>
   <div class="flex justify-between w-48 text-xs text-gray-500">
-    <span>Low intensity</span>
-    <span>High intensity</span>
+    <span>Low suitability</span>
+    <span>High suitability</span>
   </div>
 </div>
   
@@ -107,7 +109,7 @@
   <CircleLayer
     id="ph-circles"
     paint={{
-      'circle-color': 'rgb(224, 221, 110)',
+      'circle-color': 'rgb(255, 255, 0)',
       'circle-opacity': [
         '*',
         ['get', 'value'],
@@ -143,7 +145,7 @@
     <CircleLayer
     id="temp-circles"
     paint={{
-      'circle-color': 'rgb(237, 33, 33)',
+      'circle-color': 'rgb(255,0,255)',
       'circle-opacity': [
         '*',
         ['get', 'value'],
@@ -160,7 +162,7 @@
   <CircleLayer
     id="sal-circles"
     paint={{
-      'circle-color': 'rgb(101, 105, 224)',
+      'circle-color': 'rgb(252, 28, 3)',
       // big ramp near the top; whole ramp then multiplied by 0.6 to cap per-point opacity
       'circle-opacity': [
         '*',
@@ -190,7 +192,7 @@
         <CircleLayer
     id="turbidity-circles"
     paint={{
-      'circle-color': 'rgb(153, 81, 184)',
+      'circle-color': 'rgb(0,255,255)',
       'circle-opacity': [
         '*',
         ['get', 'value'],
