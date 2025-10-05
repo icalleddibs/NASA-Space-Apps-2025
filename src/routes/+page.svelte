@@ -104,7 +104,7 @@
 
     <div class="buttons" transition:fade={{ duration: 1000, delay: 600 }}>
       <button on:click={() => goTo('/tags')}>Tag Tracking Map</button>
-      <button on:click={() => goTo('/heatmap')}>Habitat Condition Map</button>
+      <button on:click={() => goTo('/heatmap')}>Habitability Map</button>
       <button on:click={() => goTo('/information')}>Data & Information</button>
     </div>
 

@@ -15,14 +15,25 @@
 
 
 <div class="absolute top-16 left-4 z-50 bg-white/80 hover:bg-white rounded-lg shadow-md px-3 py-2 flex flex-col gap-2 text-sm font-semibold transition">
+  <p> Select Data Layers:</p>
+
+  <button
+    class="bg-gray-300/90 hover:bg-gray-400 text-black font-semibold text-xs px-3 py-1 rounded-lg shadow-md transition self-start"
+    onclick={() => {
+      pH = chlorophyll = salinity = temperature = turbidity = false;
+    }}
+    >
+    Clear All Layers
+  </button>
+
   <label class="flex items-center gap-2 cursor-pointer">
-  <input type="checkbox" bind:checked={pH} class="rounded border p-1" style="accent-color: rgb(224, 221, 110);" />
-  <span
-    class="inline-block w-3 h-3 rounded-full"
-    style="background-color: rgb(224, 221, 110); opacity: 1;"
+    <input type="checkbox" bind:checked={pH} class="rounded border p-1" style="accent-color: rgb(224, 221, 110);" />
+    <span
+      class="inline-block w-3 h-3 rounded-full"
+      style="background-color: rgb(224, 221, 110); opacity: 1;"
   ></span>
   Acidity (pH)
-</label>
+  </label>
 
   <label class="flex items-center gap-2 cursor-pointer">
     <input type="checkbox" bind:checked={chlorophyll} class="rounded border p-1" style="accent-color: rgb(26, 204, 10);" />
@@ -59,6 +70,19 @@
     ></span>
     Turbidity (Kd)
   </label>
+
+<!-- Shared intensity scale -->
+<div class="mt-4 text-sm text-gray-600 pl-3">
+  <div
+    class="w-48 h-2 rounded-full mb-1"
+    style="background: linear-gradient(to right, rgba(33,102,172,0.1), rgb(33,102,172));"
+  ></div>
+  <div class="flex justify-between w-48 text-xs text-gray-500">
+    <span>Low intensity</span>
+    <span>High intensity</span>
+  </div>
+</div>
+  
 </div>
 
 
@@ -133,16 +157,29 @@
 
 {#if salinity}
 <GeoJSONSource id="sal-source" data="/salinity.geojson">
-    <CircleLayer
-    id="temp-circles"
+  <CircleLayer
+    id="sal-circles"
     paint={{
       'circle-color': 'rgb(101, 105, 224)',
+      // big ramp near the top; whole ramp then multiplied by 0.6 to cap per-point opacity
       'circle-opacity': [
         '*',
-        ['get', 'value'],
-        0.2  // adjust for layering
+        [
+          'interpolate',
+          ['linear'],
+          ['get', 'value'],
+          0.0, 0.02,   // basically invisible for very small values
+          0.8, 0.02,   // slowly increasing opacity
+          0.87, 0.13,  
+          0.92, 0.18,
+          0.97, 0.62,
+          0.99, 0.90,  
+          1.0, 0.95
+        ]
+        ,
+        0.6 
       ],
-      'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 4, 18, 10] // optional zoom scaling
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 4, 18, 10]
     }}
   />
 </GeoJSONSource>
@@ -151,13 +188,13 @@
 {#if turbidity}
 <GeoJSONSource id="turb-source" data="/turbidity.geojson">
         <CircleLayer
-    id="temp-circles"
+    id="turbidity-circles"
     paint={{
       'circle-color': 'rgb(153, 81, 184)',
       'circle-opacity': [
         '*',
         ['get', 'value'],
-        0.2  // adjust for layering
+        0.32  // adjust for layering
       ],
       'circle-radius': ['interpolate', ['linear'], ['zoom'], 0, 4, 18, 10] // optional zoom scaling
     }}
