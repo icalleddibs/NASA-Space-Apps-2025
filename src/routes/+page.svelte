@@ -80,9 +80,9 @@
   border-radius: 25px;
 }
 
+
 </style>
 
-<!-- Hero Section -->
 <section
   use:inview
   on:inview_change={(e) => (section1InView = e.detail.inView)}
@@ -103,12 +103,13 @@
     </div>
   {/if}
 
-  <div class="flex justify-center mt-15 animate-bounce">
+ <!-- svelte-ignore a11y_consider_explicit_label -->
+ <a href="#aboutSection" class="flex justify-center mt-15 animate-bounce">
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30" stroke-width="5"
-    stroke="currentColor" class="w-10 h-10 text-blue-400">
+    stroke="currentColor" class="w-10 h-10 text-blue-400 cursor-pointer hover:scale-110 transition-transform duration-200">
     <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
   </svg>
-  </div>
+</a>
 
 </section>
 
@@ -118,6 +119,7 @@
   on:inview_change={(e) => section2InView = e.detail.inView}
   class="min-h-screen bg-center bg-cover bg-no-repeat"
   style="background-image: url('/images/section2.png'); background-size: contain; aspect-ratio: 16/9;"
+  id="aboutSection"
 >
   {#if section2InView}
     <div transition:fly={{ y: 50, duration: 800 }}>
@@ -127,6 +129,13 @@
         By integrating these features, Sharkonauts aims to provide a comprehensive tool for researchers, conservationists, and the general public to understand and protect shark populations.</p>
     </div>
   {/if}
+  <!-- svelte-ignore a11y_consider_explicit_label -->
+ <a href="#overviewSection" class="flex justify-center mt-15 animate-bounce">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30" stroke-width="5"
+    stroke="currentColor" class="w-10 h-10 cursor-pointer hover:scale-110 transition-transform duration-200" style="color: #fe8080ff">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+  </svg>
+</a>
 </section>
 
 <!-- Section 3 -->
@@ -135,6 +144,7 @@
   on:inview_change={(e) => section3InView = e.detail.inView}
   class="min-h-screen bg-center bg-cover bg-no-repeat"
   style="background-image: url('/images/section3.png'); background-size: contain; aspect-ratio: 16/9;"
+  id="overviewSection"
 >
   {#if section3InView}
     <div transition:fly={{ y: 50, duration: 800 }}>
@@ -146,6 +156,13 @@
 
     </div>
   {/if}
+    <!-- svelte-ignore a11y_consider_explicit_label -->
+  <a href="#meetTeam" class="flex justify-center mt-15 animate-bounce">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30" stroke-width="5"
+      stroke="currentColor" class="w-10 h-10 text-blue-400 cursor-pointer hover:scale-110 transition-transform duration-200">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </a>
 </section>
 
 <!-- Section 4 -->
@@ -154,6 +171,7 @@
   on:inview_change={(e) => section4InView = e.detail.inView}
   class="min-h-screen bg-center bg-cover bg-no-repeat"
   style="background-image: url('/images/section4.png'); background-size: contain; aspect-ratio: 16/9;"
+  id="meetTeam"
 >
   {#if section4InView}
     <div transition:fly={{ y: 50, duration: 800 }}>
