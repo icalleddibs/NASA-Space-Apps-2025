@@ -122,7 +122,7 @@
   {#if section2InView}
     <div transition:fly={{ y: 50, duration: 800 }}>
       <h2>Mission & Vision</h2>
-      <p class="info">Sharkonauts offers an interactive way to visualize various environmental data taken by satellites, and interprets this data to provide insights into shark foraging behavior and habitat.</p>
+      <p class="info">Sharkonauts offers an interactive way to visualize various environmental data types taken by satellites, and interprets this data to provide insights into shark foraging behavior and habitat.</p>
       <p class="info">Ultimately, we aim to provide a demonstration of how climate change affects environmental factors that sharks rely on.
         By integrating these features, Sharkonauts aims to provide a comprehensive tool for researchers, conservationists, and the general public to understand and protect shark populations.</p>
     </div>

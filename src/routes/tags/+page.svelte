@@ -203,3 +203,9 @@
   >
     ← Home
   </a>
+
+  <p
+    class="absolute top-4 left-27 bg-black/60 text-white px-3 py-2 rounded-lg shadow-md text-sm font-semibold transition"
+  >
+    Tag Tracking Map
+  </p>
