@@ -107,7 +107,7 @@
   <!-- Marker 1 -->
   <Marker bind:lnglat>
     {#snippet content()}
-      <div class="text-center leading-none">
+      <div class="text-center leading-none font-poppins">
         <div class="text-3xl">🦈</div>
         <div class="font-bold text-white drop-shadow-xs">{lngLatName}</div>
         <div class="font-bold text-white drop-shadow-xs">{lngLatLoc}</div>
@@ -130,7 +130,7 @@
         <div class="font-bold text-white drop-shadow-xs">{lngLatLoc2}</div>
       </div>
     {/snippet}
-    <Popup class="w-50 text-black" bind:open={popupOpen2} offset={offsets}>
+    <Popup class="w-50 text-black font-poppins" bind:open={popupOpen2} offset={offsets}>
       <span class="text-lg font-bold">{lngLatName2}</span><br />
       <span class="text-sm italic">{lngLatLoc2}</span><br />
       <span class="text-sm">Temperature: {lngLatTemp2}</span><br />
