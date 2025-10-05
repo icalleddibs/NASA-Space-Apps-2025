@@ -1,0 +1,174 @@
+import numpy as np
+import xarray as xr
+import rasterio
+from rasterio.warp import reproject, Resampling
+import matplotlib.pyplot as plt
+#For geotiff transoforms
+from affine import Affine
+import os
+import json
+
+# Define distance thresholds (in km or whatever units your geotiff uses)
+# Adjust these based on your data
+near_shore = 0    # km from shore
+far_shore = 100   # km from shore
+min_sal = 35
+max_sal = 40
+
+# Load salinity data - already at 0.25° resolution
+salinity_data = xr.open_dataset('./data/salinity/SMAP_L3_SSS_20240625_8DAYS_V5.0.nc', engine='netcdf4')
+sss = salinity_data['smap_sss']
+# Handle time dimension if present
+if len(sss.shape) == 3:  
+    sss = sss[0, :, :]
+
+# Load turbidity data - at 9km resolution, downsample by ~3x to get to ~0.25°
+turb_data = xr.open_dataset('./data/turbidity/AQUA_MODIS.20020704_20250228.L3m.CU.KD.Kd_490.9km.nc', engine='netcdf4')
+turbidity = turb_data['Kd_490'][::3, ::3]  # Downsample by 3x
+
+# Load distance from shore geotiff
+with rasterio.open('./data/GMT_intermediate_coast_distance_01d.tif') as src:
+    distance_full = src.read(1)  # Read first band TODO:check if extra info in oher bands
+    shore_transform = src.transform
+    shore_crs = src.crs
+    shore_bounds = src.bounds
+
+#Check
+print(f"Salinity shape: {sss.shape}")
+print(f"Turbidity shape: {turbidity.shape}")
+
+
+print("Regridding distance from shore to match data resolution...")
+
+# Use salinity as the target grid (it's cleaner at 0.25°)
+target_shape = sss.shape
+target_lats = sss.latitude.values
+target_lons = sss.longitude.values
+
+# Create target grid bounds for regridding distance data
+lat_min, lat_max = target_lats.min(), target_lats.max()
+lon_min, lon_max = target_lons.min(), target_lons.max()
+
+# Regrid distance from shore to match
+target_transform = Affine.translation(lon_min, lat_max ) * Affine.scale(
+    (lon_max - lon_min) / target_shape[1],
+    -(lat_max - lat_min) / target_shape[0]
+)
+
+distance = np.empty(target_shape, dtype=np.float32)
+reproject(
+    distance_full,
+    distance,
+    src_transform=shore_transform,
+    src_crs=shore_crs,
+    dst_transform=target_transform,
+    dst_crs='EPSG:4326',  # WGS84
+    resampling=Resampling.bilinear
+)
+
+print(f"Distance shape: {distance.shape}")
+
+# Convert xarray to numpy for processing
+salinity = sss.values
+turbidity = turbidity.values
+
+
+def create_shore_distance_mask(distance, near_dist, far_dist, inverse=False):
+    # Normalize distance to 0-1 range
+    ##mask = np.clip((distance - near_dist) / (far_dist - near_dist), 0, 1) #linear
+    mask = np.clip((distance - near_dist) / (far_dist - near_dist), 0, 1) ** 2  # exponential
+    if inverse:
+        mask = 1 - mask
+    
+    return mask
+
+# Turbidity mask: 1 near shore (low distance), 0 far from shore (high distance)
+turbidity_mask = create_shore_distance_mask(distance, near_shore, far_shore, inverse=True)
+
+# Salinity mask: 0 near shore (low distance), 1 far from shore (high distance)
+salinity_mask = create_shore_distance_mask(distance, near_shore, far_shore, inverse=False)
+
+def normalize_data(data, vmin=None, vmax=None):
+    """Normalize data to 0-1 range"""
+    if vmin is None:
+        vmin = np.nanmin(data)
+    if vmax is None:
+        vmax = np.nanmax(data)
+    return np.clip((data - vmin) / (vmax - vmin), 0, 1)
+
+# Combine distance-based and value-based masks
+# Weight turbidity by both its value and distance from shore
+turbidity_combined = (normalize_data(turbidity) * turbidity_mask) ** 0.3 #Make high values more significant
+salinity_binary = ((salinity >= min_sal) & (salinity <= max_sal)).astype(float)
+salinity_combined = normalize_data(salinity) * salinity_mask * salinity_binary
+# ===== VISUALIZE =====
+fig, axes = plt.subplots(2, 3, figsize=(20, 10))
+
+# Row 1: Turbidity
+axes[0, 0].imshow(turbidity, cmap='Blues', aspect='auto', origin='lower')
+axes[0, 0].set_title('Raw Turbidity (Kd_490)')
+
+
+axes[0, 1].imshow(turbidity_mask, cmap='Blues', aspect='auto', origin='lower')
+axes[0, 1].set_title('Turbidity Mask\n(1=near shore, 0=far)')
+
+axes[0, 2].imshow(turbidity_combined, cmap='Blues', aspect='auto', origin='lower')
+axes[0, 2].set_title('Combined Turbidity Mask')
+
+# Row 2: Salinity
+axes[1, 0].imshow(salinity, cmap='Blues', aspect='auto', origin='lower')
+axes[1, 0].set_title('Raw Salinity')
+
+axes[1, 1].imshow(salinity_mask, cmap='Blues', aspect='auto', origin='lower')
+axes[1, 1].set_title('Salinity Mask\n(0=near shore, 1=far)')
+
+axes[1, 2].imshow(salinity_combined, cmap='Blues', aspect='auto', origin='lower')
+axes[1, 2].set_title('Combined Salinity Mask')
+
+plt.tight_layout()
+plt.savefig('salinity_turbidity_masks.png', dpi=150, bbox_inches='tight')
+plt.show()
+
+# ===== CONVERT TO GEOJSON =====
+print("\n=== Converting to GeoJSON ===")
+
+def mask_to_geojson(mask, lat_coord, lon_coord, name, downsample=4):
+    # Further downsample 
+    mask_down = mask[::downsample, ::downsample]
+    lat_down = lat_coord[::downsample]
+    lon_down = lon_coord[::downsample]
+    
+    features = []
+    for i, lat in enumerate(lat_down):
+        for j, lon in enumerate(lon_down):
+            value = float(mask_down[i, j])
+            if not np.isnan(value):
+                features.append({
+                    'type': 'Feature',
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [float(lon), float(lat)]
+                    },
+                    'properties': {
+                        'value': value
+                    }
+                })
+    
+    geojson = {
+        'type': 'FeatureCollection',
+        'features': features
+    }
+    
+    filename = f'./output/{name}.geojson'
+    os.makedirs('./output', exist_ok=True)
+    with open(filename, 'w') as f:
+        json.dump(geojson, f)
+    
+    print(f"Saved {name}: {len(features)} points -> {filename}")
+    return filename
+
+# Convert combined masks (with 4x downsampling to reduce file size)
+mask_to_geojson(turbidity_combined, target_lats, target_lons, 'Kd_combined_mask', downsample=4)
+mask_to_geojson(salinity_combined, target_lats, target_lons, 'sss_combined_mask', downsample=4)
+
+print("\nGeoJSON files created in ./output/")
