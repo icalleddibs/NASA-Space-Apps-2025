@@ -57,18 +57,13 @@
   }
 
   button:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
   }
  
   .info {
     margin-top: 2rem;
     font-size: 1.2rem;
     max-width: 1000px;
-  }
-
-  .section-alt {
-    background-color: #f0f0f0;
-    color: #333;
   }
 
 .grid-container {
@@ -80,7 +75,7 @@
 .column-item {
   /* Add styling for your column content here */
   padding: 25px;
-  background-color: rgb(185, 222, 234);
+  background-color: rgba(102, 201, 234, 0.42);
   border: 3px solid rgb(59, 102, 168);
   border-radius: 25px;
 }
@@ -90,27 +85,39 @@
 <!-- Hero Section -->
 <section
   use:inview
-  on:inview_change={(e) => section1InView = e.detail.inView}
+  on:inview_change={(e) => (section1InView = e.detail.inView)}
+  class="relative h-screen flex flex-col justify-center items-center text-white bg-cover bg-center"
+  style="background-image: url('/images/homepage.png');"
 >
   {#if section1InView}
-    <h1 transition:fly={{ y: -50, duration: 800 }}>Sharkonauts</h1>
+    <h1 transition:fly={{ y: -50, duration: 800 }}>sharkonauts</h1>
 
     <div class="buttons" transition:fade={{ duration: 1000, delay: 600 }}>
-      <button on:click={() => goTo('/heatmap')}>Heatmap</button>
-      <button on:click={() => goTo('/tags')}>Tag Tracker</button>
-      <button on:click={() => goTo('/information')}>Information</button>
+      <button on:click={() => goTo('/tags')}>Tag Tracking Map</button>
+      <button on:click={() => goTo('/heatmap')}>Habitat Condition Map</button>
+      <button on:click={() => goTo('/information')}>Tag Information</button>
     </div>
 
     <div class="info" transition:fly={{ y: 50, duration: 800, delay: 1500 }}>
-      <p>NASA Space Apps 2025 Submission!</p>
+      <p class="text-black">NASA Space Apps Challenge 2025</p>
     </div>
   {/if}
+
+  <div class="flex justify-center mt-15 animate-bounce">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30" stroke-width="5"
+    stroke="currentColor" class="w-10 h-10 text-blue-400">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+  </svg>
+  </div>
+
 </section>
 
 <!-- Section 2 -->
-<section class="section-alt"
+<section 
   use:inview
   on:inview_change={(e) => section2InView = e.detail.inView}
+  class="min-h-screen bg-center bg-cover bg-no-repeat"
+  style="background-image: url('/images/section2.png'); background-size: contain; aspect-ratio: 16/9;"
 >
   {#if section2InView}
     <div transition:fly={{ y: 50, duration: 800 }}>
@@ -126,6 +133,8 @@
 <section
   use:inview
   on:inview_change={(e) => section3InView = e.detail.inView}
+  class="min-h-screen bg-center bg-cover bg-no-repeat"
+  style="background-image: url('/images/section3.png'); background-size: contain; aspect-ratio: 16/9;"
 >
   {#if section3InView}
     <div transition:fly={{ y: 50, duration: 800 }}>
@@ -140,9 +149,11 @@
 </section>
 
 <!-- Section 4 -->
-<section class="section-alt"
+<section 
   use:inview
   on:inview_change={(e) => section4InView = e.detail.inView}
+  class="min-h-screen bg-center bg-cover bg-no-repeat"
+  style="background-image: url('/images/section4.png'); background-size: contain; aspect-ratio: 16/9;"
 >
   {#if section4InView}
     <div transition:fly={{ y: 50, duration: 800 }}>
