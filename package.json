@@ -46,6 +46,7 @@
 	},
 	"dependencies": {
 		"@svelte-maplibre-gl/pmtiles": "^1.0.1",
+		"katex": "^0.16.23",
 		"svelte-inview": "^4.0.4"
 	}
 }
