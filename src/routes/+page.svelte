@@ -105,7 +105,7 @@
     <div class="buttons" transition:fade={{ duration: 1000, delay: 600 }}>
       <button on:click={() => goTo('/tags')}>Tag Tracking Map</button>
       <button on:click={() => goTo('/heatmap')}>Habitability Map</button>
-      <button on:click={() => goTo('/information')}>Data & Information</button>
+      <button on:click={() => goTo('/prototype')}>Tag Prototype</button>
     </div>
 
     <div class="info" transition:fly={{ y: 50, duration: 800, delay: 1500 }}>
@@ -163,9 +163,14 @@
         The Tag Tracker page displays live tracking data from deployed SharkTags, offering a way to follow individual sharks in real-time.
         The Heatmap page visualizes various environmental factors that affect shark behavior and habitat. This includes a predictive model on shark movement patterns, 
         as well as overlays of phytoplankton, temperature, salinity to emphasize regions best suited for shark nourishment. </p>
-
+    </div>
+    <div class="buttons" transition:fade={{ duration: 1000, delay: 600 }}>
+      <button on:click={() => goTo('/environment')}>Environmental Factors</button>
+      <button on:click={() => goTo('/model')}>Mathematical Model</button>
+      <button on:click={() => goTo('/sources')}>Data Sources</button>
     </div>
   {/if}
+  
     <!-- svelte-ignore a11y_consider_explicit_label -->
   <a href="#meetTeam" class="flex justify-center mt-15 animate-bounce">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30" stroke-width="5"
@@ -249,7 +254,7 @@
 
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Nora Dawood</h3>
-                <p class="text-sm">Short bio for person 4.</p>
+                <p class="text-sm">Electrical engineering student from the University of British Columbia. Interested in space technology and systems.</p>
                 <a
                     href="https://www.linkedin.com/in/noradawood/"
                     target="_blank"
