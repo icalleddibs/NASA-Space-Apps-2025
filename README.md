@@ -1,5 +1,5 @@
 # NASA Space Apps Challenge 2025
-NASA Space Apps Challenge 2025 project developed by [Zenith 2024 and 2025 Fellows](https://www.zenithpathways.ca/zenith-fellowship-class-of-2024).
+NASA Space Apps Challenge 2025 project developed by [Zenith 2024](https://www.zenithpathways.ca/zenith-fellowship-class-of-2024) and [Zenith 2025](https://www.zenithpathways.ca/class-of-2025) fellows.
 
 ⭐ [Live WebApp Prototype](https://sharkonauts.netlify.app)
 
