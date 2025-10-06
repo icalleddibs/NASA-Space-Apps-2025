@@ -282,7 +282,7 @@
 
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Umar Shabbir</h3>
-                <p class="text-sm">Short bio for person 5.</p>
+                <p class="text-sm">Aerospace engineering graduate from Toronto Metropolitan University with an interest in rockets, rovers, and robotics.</p>
                 <a
                     href="https://www.linkedin.com/in/umaremshabbir/"
                     target="_blank"

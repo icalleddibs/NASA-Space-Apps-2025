@@ -93,7 +93,7 @@
 
 </style>
 
-<!-- Left side (Home + Data Sources) -->
+<!-- Left side (Home + Environmental Factors) -->
 <div class="left-controls">
   <a href="/" class="home-btn">← Home</a>
   <div class="pill">Environmental Factors</div>

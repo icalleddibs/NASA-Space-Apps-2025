@@ -235,38 +235,38 @@ Our goal is simple but ambitious: to develop a viable shark tag capable of colle
 <!-- 2x2 Grid -->
 <div class="photo-grid grid-2x2">
   <div class="photo-card">
-    <img src="/images/photo1.jpg" alt="Photo 1" />
-    <div class="caption">Caption 1</div>
+    <img src="/images/photo1.png" alt="Photo 1" />
+    <div class="caption">Fig 1: Wiring Diagram</div>
   </div>
   <div class="photo-card">
-    <img src="/images/photo2.jpg" alt="Photo 2" />
-    <div class="caption">Caption 2</div>
+    <img src="/images/photo2.png" alt="Photo 2" />
+    <div class="caption">Fig 2: Prototype Instrumentation Circuit</div>
   </div>
   <div class="photo-card">
-    <img src="/images/photo3.jpg" alt="Photo 3" />
-    <div class="caption">Caption 3</div>
+    <img src="/images/photo3.png" alt="Photo 3" />
+    <div class="caption">Fig 3: 3D Printed Instrumentation Prototype Enclosure (Open)</div>
   </div>
   <div class="photo-card">
-    <img src="/images/photo4.jpg" alt="Photo 4" />
-    <div class="caption">Caption 4</div>
+    <img src="/images/photo4.png" alt="Photo 4" />
+    <div class="caption">Fig 4: 3D Printed Instrumentation Prototype Enclosure (Closed)</div>
   </div>
 </div>
 
 <!-- 1x1 Image -->
 <div class="grid-1x1 photo-card">
-  <img src="/images/photo5.jpg" alt="Photo 5" />
-  <div class="caption">Caption 5</div>
+  <img src="/images/photo5.png" alt="Photo 5" />
+  <div class="caption">Fig 5: Instrumentation Data Output (Temperature + GPS)</div>
 </div>
 
 <!-- 2 Side by Side -->
 <div class="photo-grid grid-2side">
   <div class="photo-card">
-    <img src="/images/photo6.jpg" alt="Photo 6" />
-    <div class="caption">Caption 6</div>
+    <img src="/images/photo6.png" alt="Photo 6" />
+    <div class="caption">Fig 6: Live Camera Stream Tests</div>
   </div>
   <div class="photo-card">
-    <img src="/images/photo7.jpg" alt="Photo 7" />
-    <div class="caption">Caption 7</div>
+    <img src="/images/photo7.png" alt="Photo 7" />
+    <div class="caption">Fig 7: Initial Species Predictability Test</div>
   </div>
 </div>
 
