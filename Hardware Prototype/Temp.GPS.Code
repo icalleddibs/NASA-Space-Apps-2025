@@ -1,0 +1,156 @@
+#include <OneWire.h>
+#include <DallasTemperature.h>
+#include <TinyGPSPlus.h>
+#include <HardwareSerial.h>
+
+// ==========================
+// === Pin Configuration ====
+// ==========================
+#define ONE_WIRE_BUS 4      // DS18B20 data pin
+#define GPS_RX_PIN 16       // GPS RX (to GPS TX)
+#define GPS_TX_PIN 17       // GPS TX (to GPS RX)
+#define GPS_BAUD 38400      // NEO-M9N default baud rate
+
+// ==========================
+// === Global Objects =======
+// ==========================
+OneWire oneWire(ONE_WIRE_BUS);
+DallasTemperature tempSensor(&oneWire);
+HardwareSerial GPS_Serial(1);
+TinyGPSPlus gps;
+
+// ==========================
+// === Timing Variables =====
+// ==========================
+unsigned long lastTempReport = 0;
+unsigned long lastGPSReport  = 0;
+unsigned long antennaCheckTimer = 0;
+
+// ==========================
+// === Setup Section ========
+// ==========================
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+  Serial.println("\n===============================");
+  Serial.println("🌡️  ESP32-S3 GPS + Temp Monitor");
+  Serial.println("===============================");
+
+  // --- Temperature Sensor Setup ---
+  Serial.println("[CHECK 1] Initializing temperature sensor...");
+  tempSensor.begin();
+  Serial.println("✅ Temperature sensor initialized.");
+
+  // --- GPS Module Setup ---
+  Serial.println("[CHECK 2] Initializing GPS serial interface...");
+  GPS_Serial.begin(GPS_BAUD, SERIAL_8N1, GPS_RX_PIN, GPS_TX_PIN);
+  delay(500);
+  if (!GPS_Serial) {
+    Serial.println("❌ ERROR: GPS serial initialization failed!");
+    while (true) delay(1000);
+  }
+  Serial.println("✅ GPS serial initialized successfully.");
+
+  Serial.println("[SYSTEM] Setup complete. Beginning data loop...");
+  Serial.println("===============================================\n");
+}
+
+// ==========================
+// === Main Loop ============
+// ==========================
+void loop() {
+  // --- GPS Data Reading ---
+  while (GPS_Serial.available() > 0) {
+    gps.encode(GPS_Serial.read());
+  }
+
+  unsigned long currentMillis = millis();
+
+  // --- Every 2 seconds: GPS Status + Location ---
+  if (currentMillis - lastGPSReport > 2000) {
+    lastGPSReport = currentMillis;
+    reportGPS();
+  }
+
+  // --- Every 3 seconds: Temperature Reading ---
+  if (currentMillis - lastTempReport > 3000) {
+    lastTempReport = currentMillis;
+    reportTemperature();
+  }
+
+  // --- Every 10 seconds: Antenna Health Check ---
+  if (currentMillis - antennaCheckTimer > 10000) {
+    antennaCheckTimer = currentMillis;
+    checkAntennaHealth();
+  }
+}
+
+// ==========================
+// === Helper Functions =====
+// ==========================
+
+// --- GPS Reporting ---
+void reportGPS() {
+  if (gps.satellites.isValid()) {
+    Serial.print("🛰️  Satellites: ");
+    Serial.print(gps.satellites.value());
+    Serial.print(" | HDOP: ");
+    Serial.println(gps.hdop.hdop(), 2);
+  } else {
+    Serial.println("⚠️  No valid satellite data yet...");
+  }
+
+  if (gps.location.isValid()) {
+    Serial.println("✅ GPS Fix Acquired:");
+    Serial.print("   Lat: "); Serial.println(gps.location.lat(), 6);
+    Serial.print("   Lng: "); Serial.println(gps.location.lng(), 6);
+    Serial.print("   Alt: "); Serial.println(gps.altitude.meters());
+  } else {
+    Serial.println("⏳ Searching for GPS fix...");
+  }
+
+  Serial.println("---------------------------------------------");
+}
+
+// --- Temperature Reporting ---
+void reportTemperature() {
+  tempSensor.requestTemperatures();
+  float tempC = tempSensor.getTempCByIndex(0);
+
+  Serial.print("🌡️  Temperature: ");
+  if (tempC == DEVICE_DISCONNECTED_C) {
+    Serial.println("❌ Sensor not detected!");
+  } else {
+    Serial.print(tempC, 2);
+    Serial.println(" °C");
+  }
+
+  Serial.println("---------------------------------------------");
+}
+
+// --- GPS Antenna Health Check ---
+void checkAntennaHealth() {
+  Serial.println("\n[CHECK] Running antenna signal diagnostics...");
+
+  if (!gps.satellites.isValid()) {
+    Serial.println("❌ No satellites detected. Possible causes:");
+    Serial.println("   • GPS not powered or TX/RX miswired");
+    Serial.println("   • Antenna disconnected or damaged");
+    Serial.println("   • Poor sky visibility (indoors or obstruction)");
+    Serial.println("-------------------------------------------------\n");
+    return;
+  }
+
+  int satCount = gps.satellites.value();
+  double hdop = gps.hdop.hdop();
+
+  if (satCount < 3) {
+    Serial.printf("⚠️  Weak signal: %d satellites detected.\n", satCount);
+  } else if (hdop > 5.0) {
+    Serial.printf("⚠️  Poor signal quality (HDOP %.2f)\n", hdop);
+  } else {
+    Serial.printf("✅ Antenna healthy. Satellites: %d | HDOP: %.2f\n", satCount, hdop);
+  }
+
+  Serial.println("-------------------------------------------------\n");
+}
