@@ -144,9 +144,10 @@
   {#if section2InView}
     <div transition:fly={{ y: 50, duration: 800 }}>
       <h2>Mission & Vision</h2>
-      <p class="info">Sharkonauts offers an interactive way to visualize various environmental data types taken by satellites, and interprets this data to provide insights into shark foraging behavior and habitat.</p>
-      <p class="info">Ultimately, we aim to provide a demonstration of how climate change affects environmental factors that sharks rely on.
-        By integrating these features, Sharkonauts aims to provide a comprehensive tool for researchers, conservationists, and the general public to understand and protect shark populations.</p>
+      <p class="info">Due to climate change, shark foraging patterns are shifting rapidly. As key contributors to ocean ecosystems, sharks play an essential role in maintaining marine balance, but research on them remains limited due to sparse data and unpredictable behaviour. The Sharkonauts Initiative seeks to address this by predicting shark movement patterns through existing behavioural data combined with a novel shark tag prototype.</p>
+      <p class="info">A core component of our project is the Habitability Map, which integrates open-access NASA oceanographic data with known physiological parameters of sharks to predict regions most suitable for their survival. The model generates a global grid of probabilities, visualizing how favourable different ocean areas are for sharks.</p>
+      <p class="info">We have also developed a working prototype of a shark tag equipped with GPS, a temperature sensor, and a camera. Because shark tag data availability varies widely by species and region, this device can complement our habitability model by tracking understudied populations. To present these findings, we built an interactive web app displaying both the habitability map and a sample tag tracker.</p>
+      <p class="info">Together, these tools can help scientists and students better predict shark movements and understand their changing habitats in a warming world.</p>
     </div>
   {/if}
   <!-- svelte-ignore a11y_consider_explicit_label -->
@@ -169,10 +170,10 @@
   {#if section3InView}
     <div transition:fly={{ y: 50, duration: 800 }}>
         <h2>Functionalities</h2>
-        <p class="info">Sharkonauts offers two mapping services to learn more about the impact of climate change on shark foraging patterns.
-        The Tag Tracker page displays live tracking data from deployed SharkTags, offering a way to follow individual sharks in real-time.
-        The Heatmap page visualizes various environmental factors that affect shark behavior and habitat. This includes a predictive model on shark movement patterns, 
-        as well as overlays of phytoplankton, temperature, salinity to emphasize regions best suited for shark nourishment. </p>
+        <p class="info">Sharkonauts offers interactive methods of visualizing relevant data on share behaviour and predicted habitats.</p>
+        <p class="info">Information on the environmental factors used to create the habitability model can be found on the Environmental Factors page. Furthermore,
+          a mathematical model was developed to predict shark movement patterns, which is detailed on the Mathematical Model page. 
+          Finally, all data sources used in this project are listed on the Data Sources page.</p>
     </div>
     <div class="buttons" transition:fade={{ duration: 1000, delay: 600 }}>
       <button on:click={() => goTo('/environment')}>Environmental Factors</button>
