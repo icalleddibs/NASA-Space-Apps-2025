@@ -216,7 +216,7 @@
 
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Adithi Balaji</h3>
-                <p class="text-sm">Short bio for person 2.</p>
+                <p class="text-sm">Master's candidate in Physics at the University of Toronto, with research interests in Earth Observation and planetary science.</p>
                 <a
                     href="https://www.linkedin.com/in/adithi-balaji-00483827b/"
                     target="_blank"
@@ -235,7 +235,7 @@
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Diba Alam</h3>
                 <p class="text-sm">Engineering Science student at the University of Toronto. Major in Machine Intelligence, with a Minor in Robotics.
-                  Passionate about leveraging AI and robotics in space exploration.
+                  Passionate about leveraging AI & robotics to support space exploration.
                 </p>
                 <a
                     href="https://www.linkedin.com/in/diba-alam/"
