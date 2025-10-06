@@ -228,7 +228,13 @@ Our goal is simple but ambitious: to develop a viable shark tag capable of colle
 <br>
 <p>We programmed and tested the system using Arduino IDE, with ChatGPT-assisted debugging and code generation to help accelerate development, interpret error messages, and troubleshoot wiring issues under time pressure.</p>
 <br>
-<p>For hardware integration, our prototype enclosure was modified from a pre-existing 3D-printable model. Using an Ender 3 Neo V2 3D printer, we successfully printed the enclosure in PLA. Images of our progress, accomplishments, and outputs can be seen below.</p>
+<p>
+  For hardware integration, our prototype enclosure was modified from a pre-existing 
+  <a href="https://www.thingiverse.com/thing:2517937/files" target="_blank">3D-printable model</a>. 
+  Using an Ender 3 Neo V2 3D printer, we successfully printed the enclosure in PLA. 
+  Images of our progress, accomplishments, and outputs can be seen below.
+</p>
+
 
 
 
@@ -307,7 +313,7 @@ Our goal is simple but ambitious: to develop a viable shark tag capable of colle
     4. Machine Learning & Vision
     <ol>
       <li>a. Enhance the onboard camera with machine learning to identify shark species and nearby marine life.</li>
-      <li>b. Expand this capability into a citizen science tool, enabling public participation in shark identification (similar to initiatives like the <a href="https://fishdoorbell.com" target="_blank">Fish Doorbell</a>).</li>
+      <li>b. Expand this capability into a citizen science tool, enabling public participation in shark identification (similar to initiatives like the <a href="https://visdeurbel.nl/en/" target="_blank">Fish Doorbell</a>).</li>
     </ol>
   </li>
 </ol>
