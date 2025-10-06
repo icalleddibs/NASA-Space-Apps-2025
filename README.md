@@ -3,7 +3,7 @@ NASA Space Apps Challenge 2025 project developed by [Zenith 2024 and 2025 Fellow
 
 ⭐ [Live WebApp Prototype](https://sharkonauts.netlify.app)
 
-⭐ Project Submission (TBA)
+⭐ [Project Submission](https://www.spaceappschallenge.org/2025/find-a-team/coding-the-cosmos/?tab=project)
 
 ## Description
 The Sharkonauts Initiative is an interactive webapp and accompanying shark tag prototype designed to predict shark movement patterns and habitat suitability in response to climate change. The project was submitted under the challenge titled **Sharks from Space**; objectives can be found on the [NASA Space Apps 2025 Challenge Home Page.](https://www.spaceappschallenge.org/2025/challenges/sharks-from-space/). The entire project was developed in less than 36 hours in-person at the Centennial College Downsview Campus for Aerospace and Innovation.
