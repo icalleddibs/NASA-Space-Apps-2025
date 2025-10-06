@@ -3,6 +3,7 @@
 <!-- svelte-ignore non_reactive_update -->
 <script lang="ts">
   import { MapLibre, GeoJSONSource, NavigationControl, GlobeControl, CircleLayer } from 'svelte-maplibre-gl';
+  import { goto } from '$app/navigation'; 
 
   let center: [number, number] = [-80, 40];
   let zoom = $state(1.5);
@@ -15,8 +16,13 @@
 </script>
 
 
-<div class="absolute top-16 left-4 z-50 bg-white/80 hover:bg-white rounded-lg shadow-md px-3 py-2 flex flex-col gap-2 text-sm font-semibold transition">
-  <p> Select Data Layers:</p>
+<div class="absolute top-16 left-4 z-50 bg-white/80 hover:bg-black rounded-lg shadow-md px-3 py-2 flex flex-col gap-2 text-sm font-semibold transition">
+
+  <button
+    class="bg-white border border-black hover:bg-gray-200 text-black font-semibold text-xs px-3 py-1 rounded-lg shadow-md transition self-start text-center"
+    onclick={() => goto('/environment')}>
+    See Function Descriptions
+  </button>
 
   <button
     class="bg-gray-300/90 hover:bg-gray-400 text-black font-semibold text-xs px-3 py-1 rounded-lg shadow-md transition self-start"
@@ -72,18 +78,17 @@
     Sea Surface Salinity
   </label>
 
-
-<!-- Shared intensity scale -->
-<div class="mt-4 text-sm text-gray-600 pl-3">
-  <div
-    class="w-48 h-2 rounded-full mb-1"
-    style="background: linear-gradient(to right, rgba(33,102,172,0.1), rgb(33,102,172));"
-  ></div>
-  <div class="flex justify-between w-48 text-xs text-gray-500">
-    <span>Low suitability</span>
-    <span>High suitability</span>
+  <!-- Shared intensity scale -->
+  <div class="mt-4 text-sm text-gray-600 pl-3">
+    <div
+      class="w-48 h-2 rounded-full mb-1"
+      style="background: linear-gradient(to right, rgba(33,102,172,0.1), rgb(33,102,172));"
+    ></div>
+    <div class="flex justify-between w-48 text-xs text-gray-500">
+      <span>Low suitability</span>
+      <span>High suitability</span>
+    </div>
   </div>
-</div>
   
 </div>
 

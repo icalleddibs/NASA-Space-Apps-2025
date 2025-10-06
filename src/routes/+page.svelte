@@ -198,7 +198,7 @@
         <div class="grid-container">
             <div class="column-item">
                 <h3 class="text-2xl font-bold mb-2">Adara Hagman</h3>
-                <p class="text-sm">Short bio for person 1.</p>
+                <p class="text-sm">Digital Media Arts student at York University. Interested in mechatronics, space science, and assistive devices.</p>
             <a
                 href="https://www.linkedin.com/in/adarahagman/"
                 target="_blank"

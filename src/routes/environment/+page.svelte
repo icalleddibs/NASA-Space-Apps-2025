@@ -91,22 +91,6 @@
     padding: 0;
   }
 
-  section li {
-    margin-bottom: 1rem;
-  }
-
-  section a {
-    color: #eb5959;
-    text-decoration: underline;
-  }
-
-  section a:hover {
-    color: #1d4ed8;
-  }
-
-  body {
-    padding-bottom: 4rem;
-  }
 </style>
 
 <!-- Left side (Home + Data Sources) -->
@@ -177,10 +161,10 @@
   <ul>
     Each shark species has a different range of temperatures in which they are comfortable, from warm oceans for tropical reef sharks 
     to freezing temperatures for greenland sharks. Sharks are known to migrate to warmer areas within their comfortable range, as these 
-    may indicate upwelling zones where prey congregate, but extreme temperatures may stress their bodies (Bouyoucos et al., 2020; Wheeler et
-     al., 2022). This layer looks at the anomaly of sea surface temperature (SST), which indicates changes from average regional temperature.
-      We map habitability by emphasizing zones which are a bit warmer than the surroundings (+2°C above local mean) and penalizing areas with 
-      extreme values (±10°C). Data source: Multi-satellite (MODIS/Aqua+Terra, VIIRS, AVHRR, AMSR2).
+    may indicate upwelling zones where prey congregate, but extreme temperatures may stress their bodies (Bouyoucos et al., 2020; Wheeler 
+    et al., 2022). This layer looks at the anomaly of sea surface temperature (SST), which indicates changes from average regional temperature.
+     We map habitability by emphasizing zones which are a bit warmer than the surroundings and penalizing areas with extreme values. 
+     Data source: Multi-satellite (MODIS/Aqua+Terra, VIIRS, AVHRR, AMSR2).
   </ul>
 </section>
 

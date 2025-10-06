@@ -104,9 +104,7 @@
     color: #1d4ed8;
   }
 
-  body {
-    padding-bottom: 4rem;
-  }
+
 </style>
 
 <!-- Left side (Home + Data Sources) -->
@@ -134,11 +132,6 @@
       <a href="https://www.ncei.noaa.gov/">https://www.ncei.noaa.gov/</a><br>
       A vast repository of environmental data including oceanographic, atmospheric, and climate datasets.
     </li>
-    <li>
-      <strong>USGS Earth Explorer</strong><br>
-      <a href="https://earthexplorer.usgs.gov/">https://earthexplorer.usgs.gov/</a><br>
-      Provides access to satellite imagery and aerial photography for various environmental studies.
-    </li>
   </ul>
 </section>
 
@@ -149,11 +142,6 @@
       <strong>NASA Technical Reports Server (NTRS)</strong><br>
       <a href="https://ntrs.nasa.gov/">https://ntrs.nasa.gov/</a><br>
       A vast collection of NASA's scientific and technical information, including research papers and reports.
-    </li>
-    <li>
-      <strong>arXiv</strong><br>
-      <a href="https://arxiv.org/">https://arxiv.org/</a><br>
-      A repository of electronic preprints (known as e-prints) in the fields of physics, mathematics, computer science, and more.
     </li>
   </ul>
 </section>
@@ -177,10 +165,6 @@
       <a href="https://data.nasa.gov/">https://data.nasa.gov/</a><br>
       A comprehensive collection of datasets provided by NASA, covering a wide range of scientific topics.
     </li>
-    <li>
-      <strong>NASA Image and Video Library</strong><br>
-      <a href="https://images.nasa.gov/">https://images.nasa.gov/</a><br>
-      Searchable library of NASA's images, videos, and audio files for public use.
-    </li>
+
   </ul>
 </section>
