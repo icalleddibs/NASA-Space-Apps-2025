@@ -150,9 +150,9 @@
   <h1 style="font-weight: bold;">Code & UI Design</h1>
   <ul>
     <li>
-      <strong>NASA GitHub</strong><br>
-      <a href="https://github.com/nasa">https://github.com/nasa</a><br>
-      A collection of open-source software projects developed by NASA.
+      <strong>Svelte MapLibre Library</strong><br>
+      <a href="https://github.com/MIERUNE/svelte-maplibre-gl">https://github.com/MIERUNE/svelte-maplibre-gl</a><br>
+      A Svelte wrapper for MapLibre GL JS, utilized as the basis of the interactive maps.
     </li>
   </ul>
 </section>
@@ -161,9 +161,9 @@
   <h1 style="font-weight: bold;">Miscellaneous</h1>
   <ul>
     <li>
-      <strong>NASA Open Data Portal</strong><br>
-      <a href="https://data.nasa.gov/">https://data.nasa.gov/</a><br>
-      A comprehensive collection of datasets provided by NASA, covering a wide range of scientific topics.
+      <strong>Slidesgo Sharks Template</strong><br>
+      <a href="https://slidesgo.com/theme/stop-shark-massacre">https://slidesgo.com/theme/stop-shark-massacre</a><br>
+      Shark-themed presentation template used for the pitch deck and webapp homepage branding.
     </li>
 
   </ul>

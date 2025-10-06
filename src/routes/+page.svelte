@@ -109,7 +109,17 @@
     </div>
 
     <div class="info" transition:fly={{ y: 50, duration: 800, delay: 1500 }}>
-      <p class="text-black">NASA Space Apps Challenge 2025</p>
+      <p class="text-black">
+        NASA Space Apps Challenge 2025 | 
+        <a 
+          href="https://github.com/icalleddibs/NASA-Space-Apps-2025" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="underline hover:text-red-600"
+        >
+          GitHub Repository
+        </a>
+      </p>
     </div>
   {/if}
 
